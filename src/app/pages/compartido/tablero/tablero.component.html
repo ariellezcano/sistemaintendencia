@@ -1,0 +1,42 @@
+<div class="social-box">
+    <!-- Imagen de marca de agua del tablero -->
+    <div class="watermark">
+        <img src="assets/img/logocom.png" alt="">
+    </div>
+
+    <!-- tablero -->
+    <div class="row">
+        <div class="col-lg-4 col-xs-12 text-center">
+            <div class="box">
+                <img src="assets/img/gasoline.png" alt="Smiley face" height="90" width="90">
+                <!-- <i class="fas fa-user fa-3x" aria-hidden="true"></i> -->
+                <div class="box-title">
+                    <h3>Entrega de combustible</h3>
+                </div>
+                <div class="box-text">
+                    <span>Alta, Baja y Modificación de combustibles entregados </span>
+                </div>
+                <div class="box-btn">
+                    <a [routerLink]="['/entregaCombustible']">Ir a entrega de combustibles</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-xs-12 text-center">
+            <div class="box">
+                <img src="assets/img/coche.png" alt="Smiley face" height="90" width="90">
+                <!-- <i class="fas fa-user fa-3x" aria-hidden="true"></i> -->
+                <br>
+                <div class="box-title">
+                    <h3>Vehículos</h3>
+                </div>
+                <div class="box-text">
+                    <span>Alta, Baja y Modificación de los vehículos policiales</span>
+                </div>
+                <div class="box-btn">
+                    <a [routerLink]="['/vehiculo']">Ir a vehículos</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

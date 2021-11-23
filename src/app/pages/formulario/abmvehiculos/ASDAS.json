@@ -1,0 +1,53 @@
+{
+    "unidad": {
+        "ubicacion": "",
+        "regional": {
+            "id": 1,
+            "nombre": "DGSM ",
+            "activo": true
+        },
+        "cuof": "13-14",
+        "programa": "1",
+        "subprograma": "0",
+        "id": 1,
+        "actividadespecifica": "12",
+        "telefono": "",
+        "nombre": "CENTRO DE ANALISIS COMANDO Y CONTROL POLICIAL",
+        "activo": true
+    },
+    "tipocombustible": {
+        "id": 8,
+        "nombre": "nafta",
+        "activo": true
+    },
+    "tipovehiculo": {
+        "id": 1,
+        "nombre": "sedan",
+        "activo": true
+    },
+    "modelo": {},
+    "estado": {},
+    "identificacionPol": "asdadasd",
+    "titular": "asdsada",
+    "dominio": "owu 458",
+    "motornum": "151551",
+    "chasisnum": "215156",
+    "numinventario": "1",
+    "observaciones": "asdasdasd",
+    "ano": "2019",
+    "estados": {
+        "id": 7,
+        "nombre": "reparacion de ruedas",
+        "activo": true
+    },
+    "Modelo": {
+        "marca": {
+            "id": 1,
+            "nombre": "mitsubishi",
+            "activo": true
+        },
+        "id": 1,
+        "nombre": "corsa",
+        "activo": true
+    }
+}

@@ -1,0 +1,187 @@
+<form #f="ngForm" ngNativeValidate *ngIf="item">
+    <!-- .row>.col-md-4*3-->
+    <!-- membrete -->
+    <h3>ORIGINAL</h3>
+    <div class="row text-center">
+        <div class="col-md-4">
+            <!-- <img height="80px" width="auto" src="assets/img/logopol.png" alt=""> -->
+        </div>
+        <div class="col-md-4">
+            <h4>DIVISION INTENDENCIA</h4>
+        </div>
+        <div class="col-md-4"><img height="80px" width="auto" src="assets/img/logopol.png" alt=""></div>
+    </div>
+
+    <!-- .row>.col-md-12*1 -->
+    <!-- fecha -->
+    <br>
+    <div class="row">
+        <div class="col-md-6"></div>
+        <div class="col-md-6">
+            <h5> <b> Resistencia, {{item.fecha | date:'dd/MM/yyyy'}}</b></h5>
+        </div>
+    </div>
+    <br>
+
+    <!-- .row>.col-md-6*2 -->
+    <!-- cantidad y litros -->
+    <div class="row">
+        <div class="col-md-6">
+            <h5> <b> RECIBI:</b> {{item.cantidad}} litros de combustible</h5>
+        </div>
+        <div class="col-md-6">
+            <h5> <b> MOVIL:</b> {{item.vehiculo.identificacionPol}} - {{item.vehiculo.dominio}}</h5>
+        </div>
+    </div>
+
+    <!-- .row>.col-md-6*2-->
+    <!-- nro serie y tipo combustible -->
+    <div class="row">
+        <div class="col-md-6">
+            <h5> <b>Número de serie:</b> {{item.nroSerie}}</h5>
+        </div>
+        <div class="col-md-6">
+            <h5> <b>Tipo de combustible:</b> {{item.vehiculo.tipoCombustible.nombre}}</h5>
+        </div>
+    </div>
+
+    <!-- .row>.col-md-12*1-->
+    <!-- observaciones -->
+    <div class="row">
+        <div class="col-md-12">
+            <h5> <b> Observacion:</b> {{item.observacion}}</h5>
+        </div>
+    </div>
+
+    <!-- .row>.col-md-6*2-->
+    <!-- firma de los empleados -->
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="row text-center">
+                <div class="col-md-12">____________________________________</div>
+
+                <div class="col-md-12">
+                    <h5> <b>{{item.empleadoRetiro.apellido}}, {{item.empleadoRetiro.nombre}}</b></h5>
+                </div>
+                <div class="col-md-12"> <b>Retira</b></div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="row text-center">
+                <div class="col-md-12">____________________________________</div>
+                <div class="col-md-12">
+                    <h5> <b>{{item.empleado.apellido}}, {{item.empleado.nombre}}</b></h5>
+                </div>
+                <div class="col-md-12"> <b>Entrega</b> </div>
+            </div>
+        </div>
+    </div>
+
+
+    <br>
+    <br>
+
+    <div class="row text-center">
+        <div class="col-md-12">
+            <i class="fas fa-cut  fa-2x  "></i>
+            ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <!-- .row>.col-md-4*3-->
+    <!-- membrete -->
+
+    <h3>COPIA</h3>
+
+    <div class="row text-center">
+        <div class="col-md-4">
+            <!-- <img height="80px" width="auto" src="assets/img/logopol.png" alt=""> -->
+        </div>
+        <div class="col-md-4">
+            <h4>DIVISION INTENDENCIA</h4>
+        </div>
+        <div class="col-md-4"><img height="80px" width="auto" src="assets/img/logopol.png" alt=""></div>
+    </div>
+
+    <!-- .row>.col-md-12*1 -->
+    <!-- fecha -->
+    <br>
+    <div class="row">
+        <div class="col-md-6"></div>
+        <div class="col-md-6">
+            <h5> <b> Resistencia, {{item.fecha | date:'dd/MM/yyyy'}}</b></h5>
+        </div>
+    </div>
+    <br>
+
+    <!-- .row>.col-md-6*2 -->
+    <!-- cantidad y litros -->
+    <div class="row">
+        <div class="col-md-6">
+            <h5> <b> RECIBI:</b> {{item.cantidad}} litros de combustible</h5>
+        </div>
+        <div class="col-md-6">
+            <h5> <b> MOVIL:</b> {{item.vehiculo.identificacionPol}} - {{item.vehiculo.dominio}}</h5>
+        </div>
+    </div>
+
+    <!-- .row>.col-md-6*2-->
+    <!-- nro serie y tipo combustible -->
+    <div class="row">
+        <div class="col-md-6">
+            <h5> <b>Número de serie:</b> {{item.nroSerie}}</h5>
+        </div>
+        <div class="col-md-6">
+            <h5> <b>Tipo de combustible:</b> {{item.vehiculo.tipoCombustible.nombre}}</h5>
+        </div>
+    </div>
+
+    <!-- .row>.col-md-12*1-->
+    <!-- observaciones -->
+    <div class="row">
+        <div class="col-md-12">
+            <h5> <b> Observacion:</b> {{item.observacion}}</h5>
+        </div>
+    </div>
+
+    <!-- .row>.col-md-6*2-->
+    <!-- firma de los empleados -->
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="row text-center">
+                <div class="col-md-12">____________________________________</div>
+
+                <div class="col-md-12">
+                    <h5> <b>{{item.empleadoRetiro.apellido}}, {{item.empleadoRetiro.nombre}}</b></h5>
+                </div>
+                <div class="col-md-12"> <b>Retira</b></div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="row text-center">
+                <div class="col-md-12">____________________________________</div>
+                <div class="col-md-12">
+                    <h5> <b>{{item.empleado.apellido}}, {{item.empleado.nombre}}</b></h5>
+                </div>
+                <div class="col-md-12"> <b>Entrega</b> </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-md-12">
+        <button (click)="imprimir()" class="d-print-none btn btn-primary">imprimir</button>
+    </div>
+
+
+</form>

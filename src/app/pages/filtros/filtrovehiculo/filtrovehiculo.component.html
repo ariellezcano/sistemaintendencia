@@ -1,0 +1,15 @@
+<form class="form-inline my-2 my-lg-0">
+    <input [(ngModel)]="criterio" name="criterio" class="form-control mr-sm-2" type="text" placeholder="Buscar">
+    <button (click)="buscar()" class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar
+
+    </button>
+</form>
+<br>
+<select (ngModelChange)="onChange($event)" style="width: 100%;" required name="tipovehiculo" [(ngModel)]="item"
+    [compareWith]="compareFn" class="form-control form-sm" required>
+
+    <option *ngFor="let i of items" [ngValue]="i">
+        [{{i.identificacionPol}}] {{i.dominio}}
+    </option>
+</select>
+<br>

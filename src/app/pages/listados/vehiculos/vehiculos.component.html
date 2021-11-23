@@ -1,0 +1,80 @@
+<fieldset>
+    <h4>Listado de Vehículos Policiales</h4>
+    <hr>
+</fieldset>
+<label>
+    <a #collapse data-toggle="collapse" href="#collapseVehiculo" role="button" aria-expanded="false"
+        aria-controls="collapseVehiculo">
+        Buscar Vehículo Policial
+    </a>
+</label>
+<div class="collapse" id="collapseVehiculo">
+    <div class="card card-body">
+        <app-filtro-vehiculo-solo (resultado)="encontrados($event)">
+        </app-filtro-vehiculo-solo>
+    </div>
+</div>
+<table *ngIf="items.length >0 " class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Id. Policial</th>
+            <th>Dominio</th>
+            <th>Unidad</th>
+            <th>Estado vehícular</th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of items">
+            <td scope="row">{{item.id}} </td>
+            <td>{{item.identificacionPol}} </td>
+            <td>{{item.dominio}}</td>
+            <td>{{item.unidad.nombre}}</td>
+            <td>{{item.estado.nombre}}</td>
+            <!-- <td>
+                <button data-toggle="modal" data-target="#modelId" type="button" (click)="seleccionado(item)"
+                    class="btn btn-primary">
+                    <i class="fas fa-edit    "></i>
+                </button>
+                &nbsp;
+                <button (click)="preEliminar(item)" type="button" class="btn btn-danger">
+
+                    <i class=" fas fa-trash "></i>
+                </button>
+            </td> -->
+        </tr>
+    </tbody>
+</table>
+<div *ngIf="items.length ===0 " class="alert alert-warning alert-dismissible fade show" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        <span class="sr-only">Salir</span>
+    </button>
+    <strong>No hay datos</strong>
+</div>
+
+
+<!-- Modal
+<div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">ABM Vehículos</h5>
+                <button #close type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <app-abmvehiculos [select]="item" (finalizado)="accion($event)">
+                </app-abmvehiculos>
+            </div>
+
+        </div>
+    </div>
+</div>
+<button class="btn btn-primary" data-toggle="modal" data-target="#modelId" (click)="nuevo()">
+    <i class="fas fa-plus    "></i>
+    Agregar
+</button> -->

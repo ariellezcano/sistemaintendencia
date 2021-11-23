@@ -1,0 +1,87 @@
+<fieldset>
+    <h4>Listado de Combustibles Entregados</h4>
+    <hr>
+</fieldset>
+
+<label>
+    <a #collapse data-toggle="collapse" href="#collapseVehiculo" role="button" aria-expanded="false"
+        aria-controls="collapseVehiculo">
+        Buscar entrega de combustible por serie o vehículo
+    </a>
+</label>
+<div class="collapse" id="collapseVehiculo">
+    <div class="card card-body">
+        <app-filtro-combustible (resultado)="encontrados($event)">
+        </app-filtro-combustible>
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>Fecha</th>
+            <th>Cantidad</th>
+            <th>Personal Retira</th>
+            <th>Vehículo</th>
+            <th>Nro. Serie</th>
+            <th>Acción</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of items">
+
+            <td>{{item.fecha | date:'dd/MM/yyyy'}} </td>
+            <td>{{item.cantidad}} </td>
+            <td>{{item.empleadoRetiro.apellido}} {{item.empleadoRetiro.nombre}} </td>
+            <td>{{item.vehiculo.identificacionPol}} {{item.vehiculo.dominio}} </td>
+            <td>{{item.nroSerie}} </td>
+            <td>
+
+                <!-- botonera de acción EDITAR - ELIMINAR - IMPRIMIR -->
+                <button data-toggle="modal" data-target="#modelId" type="button" (click)="seleccionado(item)"
+                    class="btn btn-primary">
+                    <i class="fas fa-edit    "></i>
+                </button>
+                &nbsp;
+                <a [routerLink]="['/imprimir',item.id]" class="btn btn-info">
+                    <i class=" fas fa-print "></i></a>
+
+                &nbsp;
+
+                <button (click)="preEliminar(item)" type="button" class="btn btn-danger">
+                    <i class=" fas fa-trash "></i>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">ABM Entrega de Combustible</h5>
+                <button #close type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <app-abmentregaCombustible [item]="item" (finalizado)="accion($event)"></app-abmentregaCombustible>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- boton agregar del listado -->
+
+<button class="btn btn-primary" data-toggle="modal" data-target="#modelId" (click)="nuevo()">
+    <i class="fas fa-plus    "></i>
+    Agregar
+</button>
+
+<!-- Modal de impresión -->

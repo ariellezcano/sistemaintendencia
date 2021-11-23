@@ -1,0 +1,97 @@
+<form #f="ngForm" ngNativeValidate>
+
+    <div class="row" text="align-items-center">
+        <div class="col-md-6">
+            <div class="control-group">
+                <div class="form-group controls mb-0 pb-2">
+                    <label>Fecha</label>
+                    <input type="date" [value]="item.fecha | date:'yyyy-MM-dd'"
+                        (input)="item.fecha=parseDate($event.target.value)" required="true" name="programa"
+                        id="programa" class="form-control" placeholder="Ingrese fecha Notificacion"
+                        aria-describedby="helpId">
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="control-group">
+                <div class="form-group controls mb-0 pb-2">
+                    <label>Cantidad en litros</label>
+                    <input oninvalid="setCustomValidity('El campo cantidad es obligatorio')"
+                        oninput="setCustomValidity('')" [(ngModel)]="item.cantidad" name="vale" class="form-control"
+                        id="vale" type="number" placeholder="300" required="required"
+                        data-validation-required-message="Ejemplo">
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="control-group">
+                <div class="form-group controls mb-0 pb-2">
+                    <label>Nro. Serie desde - hasta</label>
+                    <input oninvalid="setCustomValidity('El campo número de serie es obligatorio')"
+                        oninput="setCustomValidity('')" [(ngModel)]="item.nroSerie" name="numserie" class="form-control"
+                        id="numserie" type="text" placeholder="12300010 - 12300040" required="required"
+                        data-validation-required-message="Ejemplo">
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="control-group">
+                <div class="form-group controls mb-0 pb-2">
+                    <label>Empleado que retira</label>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="control-group">
+                <div class="form-group controls">
+                    <label>
+
+                        Ingrese nro. DNI del personal
+
+                    </label>
+
+                    <app-personal [dibujar]='item.empleadoRetiro' (select)="personasencontradas($event)">
+                    </app-personal>
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="control-group">
+                <div class="form-group controls">
+
+                    <label>Ingrese Ident. Pol. o dominio</label>
+
+                    <app-filtrovehiculo [dibujar]='item.vehiculo' (resultado)="vehiculoSel($event)">
+                    </app-filtrovehiculo>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="control-group">
+                <div class="form-group controls mb-0 pb-2">
+                    <label>Ingrese nombre de la estación de servicio </label>
+                    <input oninvalid="setCustomValidity('El campo observaciones es obligatorio')"
+                        oninput="setCustomValidity('')" [(ngModel)]="item.observacion" name="observaciones"
+                        class="form-control" id="observaciones" type="text"
+                        placeholder="Ingrese nombre de la estación de servicio" required="required"
+                        data-validation-required-message="Ejemplo">
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-12">
+            <button type="submit" (click)="accion(f)" class="btn btn-primary">Guardar</button>
+        </div>
+    </div>
+
+</form>

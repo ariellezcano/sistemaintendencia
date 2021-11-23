@@ -1,0 +1,222 @@
+<form #f="ngForm" ngNativeValidate>
+
+    <div *ngIf="msg.lenght>0" class="alert alert-warning alert-dismissible fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <strong>
+            {{msg}}
+        </strong>
+    </div>
+
+    <script>
+        $(".alert").alert();
+    </script>
+
+    <div class="row" text="align-items-center">
+        <div class="col-lg-6">
+            <div class="control-group">
+                <div class="form-group controls mb-0 pb-2">
+                    <label>Identificación Policial</label>
+                    <input oninvalid="setCustomValidity('El campo identificacación policial es obligatorio')"
+                        oninput="setCustomValidity('')" [(ngModel)]="item.identificacionPol" class="form-control"
+                        name="identificacionPol" id="ejemplo" type="text" placeholder="Identificación del móvil"
+                        required="required" data-validation-required-message="Ejemplo">
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="control-group">
+                <div class="form-group controls mb-0 pb-2">
+                    <label>Ingrese titular</label>
+                    <input oninvalid="setCustomValidity('El campo titular es obligatorio')"
+                        oninput="setCustomValidity('')" [(ngModel)]="item.titular" name="titular" class="form-control"
+                        id="titular" type="text" placeholder="Ingrese el titular del vehículo" required="required"
+                        data-validation-required-message="Ejemplo">
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="control-group">
+                <div class="form-group controls mb-0 pb-2">
+                    <label>Ingrese dominio</label>
+                    <input oninvalid="setCustomValidity('El campo dominio es obligatorio')"
+                        oninput="setCustomValidity('')" [(ngModel)]="item.dominio" name="dominio" class="form-control"
+                        id="dominio" type="text" placeholder="Ingrese dominio del móvil policial" required="required"
+                        data-validation-required-message="Ejemplo">
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="control-group">
+                <div class="form-group controls mb-0 pb-2">
+                    <label>Nro. inventario</label>
+                    <input oninvalid="setCustomValidity('El campo número de inventario es obligatorio')"
+                        oninput="setCustomValidity('')" [(ngModel)]="item.numInventario" name="numInventario"
+                        class="form-control" id="numInventario" type="text" placeholder="Ingrese número"
+                        required="required" data-validation-required-message="Ejemplo">
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="control-group">
+                <div class="form-group controls mb-0 pb-2">
+                    <label>Año</label>
+                    <input oninvalid="setCustomValidity('El campo año es obligatorio')" oninput="setCustomValidity('')"
+                        [(ngModel)]="item.ano" name="ano" class="form-control" id="ano" type="text"
+                        placeholder="Ingrese año" required="required" data-validation-required-message="Ejemplo">
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="control-group">
+                <div class="form-group controls mb-0 pb-2">
+                    <label>Ingrese número de motor</label>
+                    <input oninvalid="setCustomValidity('El campo número de motor es obligatorio')"
+                        oninput="setCustomValidity('')" [(ngModel)]="item.motornum" name="motornum" class="form-control"
+                        id="motornum" type="text" placeholder="Ingrese número de motor" required="required"
+                        data-validation-required-message="Ejemplo">
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="control-group">
+                <div class="form-group controls mb-0 pb-2">
+                    <label>Ingrese número de chasis</label>
+                    <input oninvalid="setCustomValidity('El campo número de chasis es obligatorio')"
+                        oninput="setCustomValidity('')" [(ngModel)]="item.chasisnum" name="chasisnum"
+                        class="form-control" id="chasisnum" type="text" placeholder="Ingrese número de chasis"
+                        required="required" data-validation-required-message="Ejemplo">
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="control-group">
+                <div class="form-group controls mb-0 pb-2">
+                    <label>Observaciones</label>
+                    <input oninvalid="setCustomValidity('El campo observaciones es obligatorio')"
+                        oninput="setCustomValidity('')" [(ngModel)]="item.observaciones" name="observaciones"
+                        class="form-control" id="observaciones" type="text"
+                        placeholder="Ingrese las observaciones del vehículo" required="required"
+                        data-validation-required-message="Ejemplo">
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="col-lg-6">
+            <div class="control-group">
+                <div class="form-group controls">
+                    <label>Seleccione estado</label>
+
+
+                    <select style="width: 100%;" required name="estado" [(ngModel)]="item.estado"
+                        [compareWith]="compareFnEs" class="form-control form-sm" required>
+                        <option *ngFor="let estado of estados" [ngValue]="estado">[{{estado.nombre}}]
+                        </option>
+                    </select>
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="control-group">
+                <div class="form-group controls">
+                    <label>Seleccione modelo</label>
+
+
+                    <select style="width: 100%;" required name="modelo" [(ngModel)]="item.modelo"
+                        [compareWith]="compareFnMo" class="form-control form-sm" required>
+                        <option *ngFor="let item of modelos" [ngValue]="item">
+                            [{{item.nombre}}]
+                        </option>
+                    </select>
+
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="control-group">
+                <div class="form-group controls">
+                    <label>Seleccione tipo de vehiculo</label>
+
+
+                    <select style="width: 100%;" required name="tipovehiculo" [(ngModel)]="item.tipoVehiculo"
+                        [compareWith]="compareFnTv" class="form-control form-sm" required>
+                        <option *ngFor="let item of tipovehiculos" [ngValue]="item">
+                            [{{item.nombre}}]
+                        </option>
+                    </select>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="control-group">
+                <div class="form-group controls">
+                    <label>Seleccione tipo de combustible</label>
+
+
+                    <select style="width: 100%;" required name="combustible" [(ngModel)]="item.tipoCombustible"
+                        [compareWith]="compareFnTc" class="form-control form-sm" required>
+                        <option *ngFor="let item of combustibles" [ngValue]="item">
+                            [{{item.nombre}}]
+                        </option>
+                    </select>
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-12">
+            <div class="control-group">
+                <div class="form-group controls">
+                    <label>
+
+                        <a #collapse data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+                            aria-controls="collapseExample">
+                            Seleccione Unidad
+                        </a>
+                    </label>
+                    <div class="collapse" id="collapseExample">
+                        <div class="card card-body">
+                            <app-filtrounidad (resultado)="unidadesEncontradas($event)"></app-filtrounidad>
+                        </div>
+                    </div>
+                    <br>
+
+                    <select style="width: 100%;" required name="unidad" [(ngModel)]="item.unidad"
+                        [compareWith]="compareFnUni" class="form-control form-sm" required>
+                        <option *ngFor="let item of unidades" [ngValue]="item">
+                            [{{item.nombre}}]
+                        </option>
+                    </select>
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <br>
+            <button type="submit" (click)="accion(f)" class="btn btn-primary">Guardar</button>
+        </div>
+    </div>
+</form>

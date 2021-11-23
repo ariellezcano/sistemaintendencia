@@ -1,0 +1,14 @@
+<form class="form">
+    <div class="row">
+
+        <div class="col-sm-4">
+            <input #txtDNI type="number" (keydown.enter)="buscar()" name="dni" id="dni" [(ngModel)]="dni"
+                class="form-control" placeholder="" aria-describedby="helpId">
+            <small id="helpId" class="text-muted">Ingrese DNI</small>
+        </div>
+        <div class="col-sm-8">
+            <label readonly="true">{{spolicia}}</label>
+        </div>
+
+    </div>
+</form>
